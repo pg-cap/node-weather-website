@@ -8,9 +8,12 @@ const geocode = (address, callback) => {
         if (responseError) {
             callback('Unable to connect to location services!', undefined)
         } else {
+            console.log(body)
             callback(undefined, {
-                location: body.location,
-                weather: body.current
+                forecastData: body.current.weather_descriptions[0] + ": It is currently " + body.current.temperature + 
+                " degrees out. It feels like " + body.current.feelslike + " degrees. The humidity is " +
+                body.current.humidity + "%.",
+                location: body.location
             })
         }
     })

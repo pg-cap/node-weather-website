@@ -46,13 +46,13 @@ app.get('/weather', (req, res) => {
         })
     }
 
-    geocode(req.query.address, (error, { location, weather } = {}) => {
+    geocode(req.query.address, (error, { forecastData, location } = {}) => {
         if (error) {
             return res.send({ error })
         }
 
         res.send({
-            forecast: "Current temperature is " + weather.temperature + " celcius with " + weather.precip + "% chances of having rain.",
+            forecast: forecastData,
             location: location.name
         })
         
