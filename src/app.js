@@ -59,6 +59,29 @@ app.get('/weather', (req, res) => {
     })
 })
 
+app.get('/businesses/search', (req, res) => {
+    res.send({
+        businesses: [
+            {
+                rating: 4,
+                price: '200',
+                id: 1,
+                name: 'XYZ',
+                image_url: 'https://cap-weather-application.herokuapp.com/img/robot.png'
+
+            },
+            {
+                rating: 3,
+                price: '100',
+                id: 2,
+                name: 'ABC',
+                image_url: 'https://cap-weather-application.herokuapp.com/img/robot.png'
+
+            }
+        ]
+    })
+})
+
 app.get('/products', (req, res) => {
     if (!req.query.search) {
         return res.send({
